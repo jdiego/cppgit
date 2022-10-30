@@ -24,8 +24,8 @@ for line in sys.stdin:
 endef
 export PRINT_HELP_PYSCRIPT
 
-BROWSER := python -c "$$BROWSER_PYSCRIPT"
-PROJECT_NAME := modern_cpp_project
+BROWSER := python -c "$$BROWSER_PYSCRIPT
+PROJECT_NAME := cppgit
 INSTALL_LOCATION = "/tmp/$(PROJECT_NAME)"
 PROJECT_NAME_UPPERCASE = $(shell echo $(PROJECT_NAME) | tr  '[:lower:]' '[:upper:]')
 

@@ -10,10 +10,10 @@ cmake_policy(SET CMP0091 NEW)
 
 # Define the Project Name and Description
 project(
-    modern_cpp_project
+    cppgit
     VERSION 1.0.0
     LANGUAGES CXX
-    DESCRIPTION "moderncpp-project is a starter project for Modern C++"
+    DESCRIPTION "cppgit2 is a libgit wrapper library for use in modern C++"
 )
 # ######################################################################################################################
 # Include guards: Prevent building in the source directory
