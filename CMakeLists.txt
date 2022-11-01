@@ -140,7 +140,15 @@ CPMAddPackage(
 )
 if(libgit2_ADDED)
     set(LIBGIT2_INCLUDE_DIR ${libgit2_SOURCE_DIR}/include)
-    message(STATUS "Target: ${LIBGIT2_OBJECTS}")
+   
+
+    install(TARGETS libgit2package EXPORT Libgit2Targets
+        RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT bin
+        ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT lib
+        LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT lib
+    )
+    install(EXPORT Libgit2Targets DESTINATION lib/cmake/libgit2 NAMESPACE Libgit2::)
+
 endif ()
 
 list(APPEND ${PROJECT_NAME}_DEPENDENCIES "libgit2 1.5.0")

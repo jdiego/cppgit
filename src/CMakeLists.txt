@@ -60,7 +60,7 @@ target_compile_options(${LIBNAME} PRIVATE "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/pe
 # Link dependencies
 find_package(Threads)
 # Identify and link with the specific "packages" the project uses
-target_link_libraries(${LIBNAME} PRIVATE Threads::Threads fmt::fmt spdlog::spdlog libgit2)
+target_link_libraries(${LIBNAME} PRIVATE Threads::Threads fmt::fmt spdlog::spdlog libgit2package)
 # Set the build/user include directories Allow usage of header files in the
 # `src` directory, but only for utilities
 if(${LIBNAME}_BUILD_HEADERS_ONLY)
