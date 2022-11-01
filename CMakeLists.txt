@@ -127,6 +127,23 @@ CPMAddPackage(
 )
 list(APPEND ${PROJECT_NAME}_DEPENDENCIES "spdlog 1.9.2")
 
+CPMAddPackage(
+    NAME libgit2
+    GITHUB_REPOSITORY libgit2/libgit2
+    VERSION 1.5.0
+    GIT_TAG v1.5.0
+    OPTIONS 
+        "BUILD_TESTS OFF"
+        "BUILD_CLI OFF"
+        "LIBGIT2_INSTALL YES"
+        "BUILD_SHARED_LIBS ON"
+)
+if(libgit2_ADDED)
+    set(LIBGIT2_INCLUDE_DIR ${libgit2_SOURCE_DIR}/include)
+    message(STATUS "Target: ${LIBGIT2_OBJECTS}")
+endif ()
+
+list(APPEND ${PROJECT_NAME}_DEPENDENCIES "libgit2 1.5.0")
 # ######################################################################################################################
 # Source tree
 # ######################################################################################################################
@@ -221,7 +238,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     message(STATUS "[cmake] Build for OS version:   ${CMAKE_SYSTEM_VERSION}")
     message(STATUS "[cmake] Build for CPU type:     ${CMAKE_SYSTEM_PROCESSOR}")
     message(STATUS "[cmake] Build type:             ${CMAKE_BUILD_TYPE}")
-    string(TOUPPER "${CMAKE_BUILD_TYPE}" BUILD_TYPE)
     message(STATUS "[cmake] Build with cxx flags:   ${CMAKE_CXX_FLAGS_${BUILD_TYPE}} ${CMAKE_CXX_FLAGS}")
     message(STATUS "[cmake] Build with c flags:     ${CMAKE_C_FLAGS_${BUILD_TYPE}} ${CMAKE_C_FLAGS}")
 endif()

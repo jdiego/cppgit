@@ -60,8 +60,7 @@ target_compile_options(${LIBNAME} PRIVATE "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/pe
 # Link dependencies
 find_package(Threads)
 # Identify and link with the specific "packages" the project uses
-target_link_libraries(${LIBNAME} PRIVATE Threads::Threads fmt::fmt spdlog::spdlog)
-
+target_link_libraries(${LIBNAME} PRIVATE Threads::Threads fmt::fmt spdlog::spdlog libgit2)
 # Set the build/user include directories Allow usage of header files in the
 # `src` directory, but only for utilities
 if(${LIBNAME}_BUILD_HEADERS_ONLY)
@@ -78,6 +77,7 @@ else()
             $<INSTALL_INTERFACE:include/${PROJECT_NAME}-${PROJECT_VERSION}>
         PRIVATE 
             ${CMAKE_SOURCE_DIR}/src
+            ${LIBGIT2_INCLUDE_DIR}
     )
 endif()
 
