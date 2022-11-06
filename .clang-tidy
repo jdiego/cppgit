@@ -17,6 +17,7 @@ Checks: |
   -llvm-*,
   -llvmlibc-*,
   -llvmlibc-restrict-system-libc-headers
+  -readability-isolate-declaration
 
 WarningsAsErrors: '*'
 HeaderFilterRegex: ''
