@@ -2,5 +2,7 @@
 #include <git2.h>
 
 namespace cppgit {
-    
+    Repository::Repository(){
+        
+    } 
 }

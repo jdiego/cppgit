@@ -3,15 +3,12 @@
 
 namespace cppgit {
 
-Exception::Exception() : m_category(GIT_ERROR_NONE) {
+Exception::Exception() {
     if (const auto *error = git_error_last(); error != nullptr) {
         this->m_message += error->message;
         this->m_category = static_cast<git_error_t>(error->klass);
         git_error_clear();
     }
-}
-
-Exception::Exception(std::string_view message) : Exception(), m_message(message) {
 }
 
 int Exception::git2_throw(int ret) {

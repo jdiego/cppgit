@@ -11,7 +11,6 @@ class Exception : public std::exception {
 public:
     // ====================  LIFECYCLE     =======================================
     Exception();
-    explicit Exception(std::string_view message);
     Exception(const Exception &) = default;
     Exception &operator=(const Exception &) = delete;
     Exception(Exception &&) = default;
@@ -31,7 +30,7 @@ private:
     static int git2_throw(int ret);
     // ====================  DATA MEMBERS  =======================================
     std::string m_message;
-    git_error_t m_category;
+    git_error_t m_category {GIT_ERROR_NONE};
 }; // -----  end of class Exception -----
 
 } // namespace cppgit

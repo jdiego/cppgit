@@ -6,18 +6,18 @@
 #include <mutex>
 
 namespace cppgit {
+    namespace detail {
 
-namespace detail {
-void init() {
-    git2_throw(git_libgit2_init());
-}
-} // namespace detail
+        void init() {
+            git2_throw(git_libgit2_init());
+        }
 
-inline std::once_flag once;
+    } // namespace detail
+    inline std::once_flag once;
 
-void init() {
-    std::call_once(once, detail::init);
-}
+    void init() {
+        std::call_once(once, detail::init);
+    }
 } // end namespace cppgit
 
 #endif // !CPPGIT_GLOBAL_HPP

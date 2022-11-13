@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.14...3.22)
 set(LIB_NAME ${CMAKE_PROJECT_NAME})
 set(TEST_SUITE ${CMAKE_PROJECT_NAME}-testrunner)
 include (Utils)
-message(STATUS "Started ${TEST_LIB} Test Suite for ${CMAKE_PROJECT_NAME}...\n")
+message(STATUS "Started ${TEST_SUITE} Test Suite for ${CMAKE_PROJECT_NAME}...\n")
 #
 project(${TESTE_SUITE} LANGUAGES CXX)
 
@@ -27,8 +27,8 @@ CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
 if(TEST_INSTALLED_VERSION)
     find_package(${LIB_NAME} REQUIRED)
 elseif(NOT ${${PROJECT_NAME_UPPERCASE}_ENABLE_TESTING})
-    verbose_message("Adding {LIB_NAME}.")
-    CPMAddPackage(NAME ${ProjectModule} SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+    verbose_message("Adding ${LIB_NAME}.")
+    CPMAddPackage(NAME ${LIB_NAME} SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 endif()
 
 # ######################################################################################################################
