@@ -1,6 +1,7 @@
 #ifndef CPPGIT_HPP
 #define CPPGIT_HPP
 
+#include "cppgit/git2api.hpp"
 #include <tuple>
 
 namespace cppgit {
@@ -9,7 +10,7 @@ namespace cppgit {
 //  Description:
 //
 // =====================================================================================
-class Repository {
+class Repository: private Git2API {
 public:
     // ====================  LIFECYCLE     =======================================
     Repository();
